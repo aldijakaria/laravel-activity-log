@@ -1,0 +1,23 @@
+{
+    "name": "aldijakaria/laravel-activity-log",
+    "description": "a package to track user activity log",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Aldijakaria\\LaravelActivityLog\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "aldi jakaria",
+            "email": "airakajidla@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1.0",
+        "illuminate/database": "^10.0",
+        "illuminate/support": "^10.0",
+        "illuminate/config": "^10.0",
+        "illuminate/auth": "^10.0"
+    }
+}
