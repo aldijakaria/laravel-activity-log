@@ -18,14 +18,14 @@ class TrackUserActivity
      */
     public function handle(Request $request, Closure $next, $desc = ''): \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
     {
-        if ((!config('app.debug')) && (!$request->ajax())){
+        if (config('laravel-activity-log.track') && (!$request->ajax())){
             $log['param'] =  json_encode($request->query(), true);
             $log['url'] = $request->path();
             $log['method'] = $request->method();
             $log['ip'] = $request->ip();
             $log['agent'] = $request->header('user-agent');
             $log['description'] = $desc;
-            $log['user_id'] = auth()->user()->id;
+            $log['user_id'] = auth()->user()->id ?? null;
 
             $last = Cache::remember('activity-'.auth()->user()->id, 8*60, function (){
                 return LogActivity::query()->where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->first();

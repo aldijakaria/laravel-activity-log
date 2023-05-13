@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('ip');
             $table->string('description')->nullable();
             $table->string('agent')->nullable();
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }

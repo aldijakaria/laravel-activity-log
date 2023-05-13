@@ -5,7 +5,10 @@
     "autoload": {
         "psr-4": {
             "Aldijakaria\\LaravelActivityLog\\": "src/"
-        }
+        },
+        "files": [
+            "src/config/laravel-activity-log.php"
+        ]
     },
     "authors": [
         {
