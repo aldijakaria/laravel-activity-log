@@ -22,5 +22,6 @@
         "illuminate/support": "^10.0",
         "illuminate/config": "^10.0",
         "illuminate/auth": "^10.0"
-    }
+    },
+    "license": "MIT"
 }
