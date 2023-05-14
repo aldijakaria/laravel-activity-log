@@ -1,8 +1,8 @@
 <?php
 
-namespace Aldijakaria\LaravelLogActivity\Middleware;
+namespace Aldijakaria\LaravelActivityLog\Middleware;
 
-use Aldijakaria\LaravelLogActivity\Models\LogActivity;
+use Aldijakaria\LaravelActivityLog\Models\LogActivity;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -18,14 +18,14 @@ class TrackUserActivity
      */
     public function handle(Request $request, Closure $next, $desc = ''): \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
     {
-        if (config('laravel-activity-log.track') && (!$request->ajax())){
+        if (config('laravel-activity-log.track') && (!$request->ajax()) && (auth()->user() != null) ){
             $log['param'] =  json_encode($request->query(), true);
             $log['url'] = $request->path();
             $log['method'] = $request->method();
             $log['ip'] = $request->ip();
             $log['agent'] = $request->header('user-agent');
             $log['description'] = $desc;
-            $log['user_id'] = auth()->user()->id ?? null;
+            $log['user_id'] = auth()->user()->id;
 
             $last = Cache::remember('activity-'.auth()->user()->id, 8*60, function (){
                 return LogActivity::query()->where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->first();

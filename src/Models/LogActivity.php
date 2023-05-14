@@ -1,6 +1,6 @@
 <?php
 
-namespace Aldijakaria\LaravelLogActivity\Models;
+namespace Aldijakaria\LaravelActivityLog\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;

@@ -20,5 +20,12 @@
         "illuminate/config": "^9|^10",
         "illuminate/auth": "^9|^10"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aldijakaria\\LaravelActivityLog\\Providers\\LaravelActivityLogProvider"
+            ]
+        }
+    }
 }
