@@ -27,7 +27,7 @@ You can customize the package's behavior by publishing its configuration file.
 To publish the configuration file, run the following command:
 
 ```shell
-php artisan vendor:publish --provider="Aldijakaria\LaravelActivityLog\LaravelActivityLogServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Aldijakaria\LaravelActivityLog\Providers\LaravelActivityLogProvider" --tag="config"
 ```
 This will create a config/activity-log.php file in your application. 
 You can modify this file to customize the package's behavior.
