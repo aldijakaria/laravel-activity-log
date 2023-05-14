@@ -12,13 +12,10 @@ class LaravelActivityLogProvider extends ServiceProvider
      *
      * @return void
      */
-
-    public function register(): void
-    {
-        $this->app['router']->aliasMiddleware('track', TrackUserActivity::class);
-    }
     public function boot(): void
     {
+        $this->app['router']->aliasMiddleware('track', TrackUserActivity::class);
+
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->mergeConfigFrom(
             __DIR__.'/../config/laravel-activity-log.php', 'laravel-activity-log'
