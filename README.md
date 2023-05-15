@@ -12,6 +12,15 @@ You can install the package via Composer:
 composer require aldijakaria/laravel-activity-log
 ```
 
+## Migration
+To migrate the package's database tables, use the following Artisan command:
+
+```shell
+php artisan migrate
+```
+This will create the necessary tables in your database for tracking user activity.
+
+
 ## Usage
 To use the package, add the TrackUserActivity middleware to your application's routes:
 ```php
